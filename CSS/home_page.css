@@ -1,0 +1,475 @@
+/*
+ * Home_Page.cs
+ *
+ *
+ *	Contents
+ *		00 - Main Page
+ *		01 - Account Summary
+ *		02 - Portfolio
+ * 		03 - Statistics
+ *		04 - Search Bar/Button
+ *		05 - Company Summary/Buy
+ */		
+
+
+/**************************************************************************/
+/********************************** Popup *********************************/
+/**************************************************************************/
+
+.popup{
+	width:530px;
+	height:320px;
+	position:absolute;
+	z-index: 1000;
+	top: 50%;
+  	left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    font-family: "Courier New";
+	background: #ffffff; 
+	
+  }
+
+  .popup_top_bar{
+  	width:100%;
+  	height:40px;
+  	background-color: #006699;
+  	-moz-border-radius: 0px;
+	-webkit-border-radius: 15px 15px 0px 0px;
+	border-radius: 15px 15px 0px 0px; 
+  }
+
+  .popup_exit{
+  	float: right;
+  	width:40px;
+  	height: 100%;
+  	background-color: #71B1D1;
+
+  	    text-align: center;
+  	    line-height: 150%;
+	 	vertical-align: middle;
+	 	color:white;
+	 	font-size: 30px;
+   
+  	 -moz-border-radius: 0px;
+	 -webkit-border-radius: 0px 0px 0px 0px;
+	 border-radius: 0px 15px 0px 0px; 
+   }
+
+   .popup_exit:active{
+   			background-color: yellow;
+
+   }
+	.popup_exit:hover{
+		background: #219FDE;
+	  text-decoration: none;
+	}
+
+  .popup_company_name{
+  	background-color: white;
+  	border-bottom-width:2px;
+    border-bottom-color:black;
+    border-bottom-style: solid;
+    font-size: 30px;
+    width: 60%;
+    margin: 8px 0 0 13px;
+  }
+
+  .popup_stock_price{
+  	background-color: white;
+  	font-size: 26px;
+    margin: 14px 0 0 25px;
+  	position:absolute;
+  }
+
+  .popup_buying_power{
+  	 margin: 50px 0 0 25px;
+  	 font-size: 20px;
+  	 background-color: white;
+  	   	position:absolute;
+
+  }
+
+  .popup_purchase_quantity_wrapper{
+  	background-color: white;
+  	position:relative;
+  	margin: 90px 0 0 25px;
+
+  }
+
+  .popup_purhcase_quantity{
+  	  position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+
+  .review_order_button {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: "Courier New";
+  color: #ffffff;
+  font-size: 20px;
+  background: #006699;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  float:right;
+  margin: 8 40px 0 0 ;
+  line-height: 10.5px;
+  bottom:20px;
+  left:50%;
+  margin-left:-75px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+   height:20px;
+}
+
+.review_order_button:hover {
+  background: #71B1D1;
+  text-decoration: none;
+}
+
+/**************************************************************************/
+/******************************** Main Page *******************************/
+/**************************************************************************/
+*{
+	background-color: #B3B3B3;
+}
+
+html, body {
+    margin: 0;
+    padding: 0
+
+}
+
+
+.top{
+	background-color:#179b77;
+	width:100%;
+	height:60px;
+	line-height: 60px;
+
+	text-align:center;
+}
+
+.top span{
+	background-color: #179b77;
+	color:#F2F2F2;
+	display: inline-block;
+  	vertical-align: middle;
+ 	line-height: normal;    
+ 	font-size:40px;
+ 	letter-spacing:3px;
+ 	font-family: "Trebuchet MS";
+ 	font-style: bold;
+}
+
+.main_container{
+	width: 100%;
+	overflow:hidden;
+
+}
+
+.left_page{
+	width: 50%;
+	float:left;
+}
+
+.right_page{
+	width: 50%;
+	float:right;
+	position:relative;
+}
+
+/**************************************************************************/
+/**************************** Account Summary *****************************/
+/**************************************************************************/
+.summary_wrapper{
+	background-color: gray;
+	width: 100%;
+	height:150px;
+}
+
+.money_wrapper{
+	background-color: gray;
+	float:right;
+	width:300px;
+	height:100%;
+}
+
+.total_funds{
+	font-size: 30px;
+	border-bottom-width:2px;
+    border-bottom-color:white;
+    border-bottom-style: solid;
+    background-color: gray;
+    color: white;
+    letter-spacing: 4px;
+    width:250px;
+    line-height: 140%;
+    margin-top: 10px;
+}
+
+.buying_power{
+	font-size:15px;
+	background-color: gray;
+    color: white;
+    letter-spacing: 3px;
+    margin: 9px 0 0 5px;
+}
+
+/**************************************************************************/
+/******************************* PORTFOLIO ********************************/
+/**************************************************************************/
+.portfolio_wrapper{
+	margin: 15px 0 0 20px;
+	width: 440px;
+	height:550px;
+	border: 3px solid gray;
+	border-radius: 16px;
+	overflow: scroll;
+}
+
+.portfolio_header{
+	text-align:center;
+	font-size:32px;
+	margin: 10px 0 0 0;
+	letter-spacing:5px;
+	border-bottom-width:2px;
+    border-bottom-color:#6E6E6E;
+    border-bottom-style: solid;
+}
+
+.portfolio_element{
+	margin: 15px 20px 0 20px;
+	height: 60px;
+	border: 3px solid gray;
+	border-radius: 16px;
+	width: 393px
+
+}
+
+.portfolio_symbol{
+	color:white;
+	width:45%;
+	height: 100%;
+	vertical-align: text-bottom;
+	font-size: 27px;
+	line-height: 224%;
+	margin-left:20px;
+	float:left;
+}
+
+.portfolio_cost{
+	color:white;
+	font-size: 27px;
+	line-height: 224%;
+	float:left;
+	margin-left:28px;
+}
+
+.portfolio_differential{
+	width:60px;
+	height:35px;
+	color:white;
+	background-color: #179b77;
+	float:left;
+	margin: 13px 0 0 20px;
+	line-height: 220%;
+	text-align: center;
+
+}
+
+/**************************************************************************/
+/******************************* Statistics *******************************/
+/**************************************************************************/
+
+.stat_box{
+	/*margin: 100px 0 0 100px;*/
+	background-color:#B5B5B5;
+	width:480px;
+	height:auto;
+	margin-top: 15px;
+}
+
+.stat_box header{
+	font-size:30px;
+	color:#F2F2F2;
+	background-color:#B5B5B5;
+	border-bottom-width:2px;
+    border-bottom-color:#F2F2F2;
+    border-bottom-style: solid;
+
+}
+
+.stat_box_left{
+	width:49%;
+	height:auto;
+	float:left;
+
+}
+
+.stat_box_left_content{
+    background-color:#B5B5B5;
+	border-bottom-width:2px;
+	color: #6E6E6E;
+    border-bottom-color:#6E6E6E;
+    border-bottom-style: solid;
+	width:auto;
+	vertical-align: middle;
+	font-size:14px;
+	float:left;
+	clear:left;
+	width:100%;
+	line-height:240%;
+}
+
+.stat_box_left_content span{
+	float:right;
+	font-size:16px;
+	color: #F2F2F2;
+}
+
+.stat_box_right{
+	background-color:black;
+	width:49%;
+	height:100%;
+	float:right;
+}
+
+.stat_box_right_content{
+	background-color:#B5B5B5;
+	border-bottom-width:2px;
+   color: #6E6E6E;
+    border-bottom-color:#6E6E6E;
+    border-bottom-style: solid;
+
+	width:auto;
+	vertical-align: middle;
+	font-size:14px;
+	float:right;
+	clear:right;
+	width:100%;
+	line-height:240%;
+}
+
+.stat_box_right_content span{
+		float:right;
+	    font-size:16px;
+	    color:#F2F2F2;
+
+}
+
+
+/**************************************************************************/
+/*************************** Search Bar/Button ****************************/
+/**************************************************************************/
+label
+{
+width: 4em;
+float: left;
+text-align: right;
+margin-right: 0.5em;
+display: block;
+vertical-align: middle;
+background-color: blue;
+}
+
+input
+{
+color: black;
+background:#F2F2F2;
+border: 7px solid #F2F2F2
+
+}
+
+
+.search_wrapper{
+	overflow:auto;
+	width:300px;
+	margin-top: 15px;
+	margin-left:0px;
+}
+
+.btn {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: "Courier New";
+  color: #ffffff;
+  font-size: 15px;
+  background: #179b77;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  float:right;
+  margin: 0 40px 0 0 ;
+  line-height: 10.5px;
+}
+
+.btn:hover {
+  background: #ffffff;
+  text-decoration: none;
+}
+
+/**************************************************************************/
+/************************** Company Summary/Buy ***************************/
+/**************************************************************************/
+
+.company_summary_wrapper{
+	width:480px;
+	height:200px;
+	float:left;
+	margin-top: 20px;
+	border: 5px solid #007857;
+}
+
+.company_summary_title{
+	/*background-color:#179b77 ;*/
+	width:90%;
+	margin:5px 0 0 6px;
+	font-size:22px;
+}
+
+.company_summary{
+	/*background-color: #99FFE3;*/
+	margin:5px 0 0 6px;
+	width:98%;
+	height:200px;
+	overflow: scroll;
+	height:150px;
+	line-height: 130%;
+}
+
+.buy_button {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: "Courier New";
+  color: #ffffff;
+  font-size: 15px;
+  background: #179b77;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin: 10px 40px 0 170px ;
+  line-height: 10.5px;
+  float:left;
+  width: 140px;
+  text-align: center;
+}
+
+.buy_button:hover {
+  background: #ffffff;
+  text-decoration: none;
+}
+
+
+

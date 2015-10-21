@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="css/home_page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="Scripts/home_page.js"></script>
+	<script src="Scripts/server.js"></script>
+	</head>
+                                                
+	<body>
+		<div id="popup" class="popup" style="display:none">
+			<div class="popup_top_bar">
+				<div id="popup_exit" class="popup_exit" onclick="exitPopup()">X</div>
+			</div>
+			<div class="popup_company_name" id="statistics">Company Name</div>
+			<span id="popup_stock_price" class="popup_stock_price"></span>
+		    <span id="popup_buying_power" class="popup_buying_power"></span>
+		    <div class="popup_purchase_quantity_wrapper">
+		    	Purchase Quantity: 
+			    <input type="text" placeholder="QNTY"/>
+			    <label class="popup_purchase_quantity"/>
+			</div>
+			<div class="review_order_button">Review Order</div>
+		</div>
+
+		<div class="top">
+			<span>Leaf Investments</span>
+		</div>
+
+		<div class="summary_wrapper">
+			<div class="money_wrapper">
+				<div class="total_funds">$00,000.00</div>
+					<div id="buying_power" class="buying_power">Buying Power: $0,000.00</div>
+					<div class="buying_power">Liquid Money: $00,000.00</div>
+			</div>
+		</div>
+
+		<div class="main_container">
+			<div class="left_page">
+				<div class="portfolio_wrapper">
+					<div class="portfolio_header">Portfolio</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						<div class="portfolio_element">
+							<div class="portfolio_symbol">SYMB</div>
+							<div class="portfolio_cost">00.00</div>
+							<div class="portfolio_differential">0.00</div>
+						</div>
+						
+				</div>
+			</div>
+
+			<div class="right_page">
+				<div class="search_wrapper">
+					<form action="#">
+					<label for="name"></label> 
+					<input name ="symbol" id="symbol" type="text" placeholder="SYMB"/>
+					<div class="btn" onclick="httpGetAsync()" >Search</div>
+					</form>
+				</div>
+
+				<!-- Illustrates Stock Statistics After Search -->
+				<div class="stat_box">
+					<header id="company_name">Statistics</header>
+					<div class="stat_box_left">
+						<div class="stat_box_left_content">Open<span id="stock_price">000.00</span></div>
+						<div class="stat_box_left_content">High<span id="day_high">000.00</span></div>
+						<div class="stat_box_left_content">Low<span id="day_low">000.00</span></div>				
+						<div class="stat_box_left_content">52-wk High<span id="year_high">000.00</span></div>
+						<div class="stat_box_left_content">52-wk Low<span id="year_low">000.00</span></div>
+					</div>
+					<div class="stat_box_right">
+						<div class="stat_box_right_content">Volume<span id="volume">00.00</span></div>
+						<div class="stat_box_right_content">Avg. Volume<span id="average_volume">00.00</span></div>
+						<div class="stat_box_right_content">Market Cap.<span id="market_capital">00.00</span></div>				
+						<div class="stat_box_right_content">P/E Ratio<span id="pe_ratio">00.00</span></div>
+						<div class="stat_box_right_content">DIV/Yield<span id="div_yield">00/00</span></div>
+					</div>
+				</div>
+
+				<div class="company_summary_wrapper">
+					<div class="company_summary_title">Company Summary : </div>
+					<div class="company_summary" id="company_summary">
+						Cras id metus non purus pretium egestas vitae sed est. Aliquam a gravida felis, non pulvinar dui. In fringilla turpis nec purus aliquet, id ornare orci bibendum. Mauris blandit, turpis in pretium varius, libero sapien luctus metus, et ultricies lorem lorem et tortor. Vivamus feugiat euismod congue. Duis lacinia sed sapien et suscipit. Morbi congue fringilla tortor. Donec faucibus convallis ligula. Mauris ut nisl dui.
+					</div>
+				</div>	
+
+				<div id ="buy_button" class="buy_button" onclick="showHide()">Buy Shares</div>	
+
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+
