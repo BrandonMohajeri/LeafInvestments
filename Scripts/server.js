@@ -6,6 +6,7 @@ function httpGetAsync() {
     var url = 'http://query.yahooapis.com/v1/public/yql';
     var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
 
+
     $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
         .done(function (data) {
             var companyName = data.query.results.quote.Name;
