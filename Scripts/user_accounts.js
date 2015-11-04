@@ -2,7 +2,7 @@
 
 getElements();
 function getElements(){
-	// console.log(get['firstName']);
+  // console.log(get['firstName']);
 
 }
 
@@ -19,17 +19,16 @@ var Db = require('mongodb').Db,
     Code = require('mongodb').Code,
     assert = require('assert');
 
-	var db = new Db('test', new Server('localhost', 27017));
-	db.open(function(err, db) {
-	  var collection = db.collection("users");
-
+  var db = new Db('test', new Server('localhost', 27017));
+  db.open(function(err, db) {
+    var collection = db.collection("users");
 
   // collection.insert(
   // {
-  // 	firstName:"Brandon",
-  // 	lastName:"Mohajeri"
-  	// emailAddress:
-  	// password:
+  //  firstName:"Brandon",
+  //  lastName:"Mohajeri",
+  //   emailAddress:"brandon.mohajeri@gmail.com",
+  //   password:"testpaswrd!!!"
   // })
 
 
