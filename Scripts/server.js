@@ -6,7 +6,6 @@ function httpGetAsync() {
     var url = 'http://query.yahooapis.com/v1/public/yql';
     var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
 
-
     $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
         .done(function (data) {
             var companyName = data.query.results.quote.Name;
@@ -78,4 +77,18 @@ function nFormatter(num, digits) {
     }
   }
   return num;
+}
+
+function storeUser(){
+    var params = "?firstName=" + document.getElementById("first_name").innerHTML + "?lastName=" + document.getElementById("last_name").innerHTML;
+    var sendUser = new XMLHttpRequest();
+    sendUser.onreadystatechange = function(){
+        if (this.readyState == 4){
+            alert(this.responseText);
+        }
+    }
+    sendUser.open('GET', 'Scripts/user_accounts.js?firstName=Testing?lastName=TheGame', true);
+    sendUser.setRequestHeader("Content-Type", "UTF_8");
+    sendUser.send(null);
+
 }
