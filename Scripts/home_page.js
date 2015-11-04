@@ -1,4 +1,3 @@
-
 // Function which closes the purchase popup 
 function exitPopup(){
 		var theDiv = document.getElementById('popup'); 
@@ -6,7 +5,6 @@ function exitPopup(){
          document.getElementById("symbol").value = null;
 
 }
-
 
 //Show purchase stock popup
 function showHide(){
@@ -17,7 +15,6 @@ function showHide(){
     if(theDiv.style.display=="block"){
         theDiv.style.display="none";
         document.getElementById("symbol").value = null;
-
     }
     else{
         theDiv.style.display="block";
@@ -34,26 +31,34 @@ function getSignUpInformation(){
 
     var xml = new XMLHttpRequest();
 
-
-
     var params = "?" + firstName + "?" + lastName + "?" + emailAddress + "?" + password;
-    // xml.open("GET", "Scripts/user_accounts.js" + params, true);
-    // xml.send();
+
     console.log("First Name: " + firstName);
     console.log("Last Name: " +lastName);
     console.log("Email Address: " + emailAddress);
     console.log("Password: " + password);
+    console.log("Total Assets: " + "10,000");
+    console.log("Buying Power: " + "10,000");
+    console.log("Liquid Assets: " + "0");
 
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-       // Action to be performed when the document is read;
-    }
-xhttp.open("GET", "Scripts/user_accounts.js" + params, true);
-xhttp.send(params);
+
+
+
+
+
+
+
+
+
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+           // Action to be performed when the document is read;
+        }
+    xhttp.open("GET", "Scripts/user_accounts.js" + params, true);
+    xhttp.send(params);
 }
-
-
 
 }
