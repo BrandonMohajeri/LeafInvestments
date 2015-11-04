@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    
+    <script src="Scripts/server.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="Scripts/user_accounts.js"></script>
+	<!-- <script src="Scripts/user_accounts.js"></script> -->
 	<script src="Scripts/home_page.js"></script>
 
 
@@ -57,7 +56,7 @@
 	          <input type="password" required autocomplete="off" id="password" />
 	        </div>
 
-	        <button type="submit" class="button button-block" onClick="getSignUpInformation()"/>Get Started</button>
+	        <button type="submit" class="button button-block" onClick="storeUser()"/>Get Started</button>
 
 	      </form>
 
@@ -84,7 +83,7 @@
 
 	        <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-	        <button class="button button-block" onclick="location.href='home_page.html'">Log In</button>
+	        <button class="button button-block" onclick="storeUser()">Log In</button>
 
 	      </form>
 
