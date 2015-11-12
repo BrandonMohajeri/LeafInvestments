@@ -4,8 +4,8 @@ The purpose of Leaf is give everyone the opportunity to learn to invest without 
 
 ## Installation
 
-MongoDB
-NodeJS
+[MongoDB](https://www.mongodb.org/)
+[NodeJS](https://nodejs.org/en/)
 
 ## Usage
 
@@ -21,12 +21,12 @@ This app is centered around kids as an educational tool to gain an understanding
 
 ## Credits
 
-Creator: Brandon Mohajeri
+Creator: [Brandon Mohajeri](https://www.linkedin.com/in/brandonmohajeri)
 		 Champan University 2016
 
 ## License
 
-The MIT License (MIT)
+[The MIT License (MIT)](https://opensource.org/licenses/MIT)
 
 
 
