@@ -7,8 +7,9 @@
 	<script src="Scripts/home_page.js"></script>
 	<script src="Scripts/server.js"></script>
 	</head>
-                                         
-                                         
+          
+
+
                                                 
 	<body>
 		<div id="popup" class="popup" style="display:none">
@@ -20,11 +21,34 @@
 		    <span id="popup_buying_power" class="popup_buying_power"></span>
 		    <div class="popup_purchase_quantity_wrapper">
 		    	Purchase Quantity: 
-			    <input type="text" placeholder="QNTY"/>
+			    <input id="shares" type="text" placeholder="QNTY"/>
 			    <label class="popup_purchase_quantity"/>
 			</div>
-			<div class="review_order_button">Review Order</div>
+			<div class="review_order_button" onclick="reviewOrder();exitPopup()">Review Order</div>
 		</div>
+
+
+
+		<div id="review_order" class="review_order" style="display:none">
+			<div class="popup_top_bar">
+				<div id="popup_exit" class="popup_exit" onclick="exitReviewOrder()">X</div>
+			</div>
+			<div class="review_order_title">Review Order</div>
+			<div class="review_order_company_name" id="review_order_company_name">Company Name</div>
+			<div class="purchase_summary"></p>
+				Number of Shares: <span id="review_order_shares" class="review_order_shares">22</span>
+				&nbsp&nbsp&nbsp&nbsp&nbspPrice / Share: <span id="review_order_price" class="review_order_price">price</span>
+				</p>Remaining Purchasing Power: <span id="remaining_purchasing_power" class="remaining_purchasing_power">$00,000.00
+			</div>
+			<div class="total_container">
+					<total id="total"></total>
+			</div>
+			<div class="confirm_order_button">Confrim Order</div>
+		</div>
+
+
+
+
 
 		<div class="top">
 			<span>Leaf Investments</span>
@@ -33,8 +57,8 @@
 		<div class="summary_wrapper">
 			<div class="money_wrapper">
 				<div class="total_funds">$00,000.00</div>
-					<div id="buying_power" class="buying_power">Buying Power: $0,000.00</div>
-					<div class="buying_power">Liquid Money: $00,000.00</div>
+				<div id="buying_power" class="buying_power">Buying Power: $0,000.00</div>
+				<div class="buying_power">Liquid Money: $00,000.00</div>
 			</div>
 		</div>
 
