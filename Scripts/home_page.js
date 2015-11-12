@@ -3,8 +3,13 @@ function exitPopup(){
 		var theDiv = document.getElementById('popup'); 
 		theDiv.style.display="none";
          document.getElementById("symbol").value = null;
-
 }
+
+function exitReviewOrder(){
+        var theDiv = document.getElementById('review_order'); 
+        theDiv.style.display="none";
+}
+
 
 //Show purchase stock popup
 function showHide(){
@@ -15,6 +20,7 @@ function showHide(){
     if(theDiv.style.display=="block"){
         theDiv.style.display="none";
         document.getElementById("symbol").value = null;
+
     }
     else{
         theDiv.style.display="block";
@@ -22,6 +28,28 @@ function showHide(){
         document.getElementById("popup_stock_price").innerHTML = "$ "+stockPrice;
     }    
 }
+
+function reviewOrder(){
+
+    var companyName = document.getElementById("company_name").innerHTML;
+    var shares = document.getElementById("shares").value;
+    var price = document.getElementById("stock_price").innerHTML;
+    var total = parseInt(price) * parseInt(shares);
+
+    var theDiv=document.getElementById("review_order");
+
+     if(theDiv.style.display=="block"){
+        theDiv.style.display="none";
+    }
+    else{
+        theDiv.style.display="block";
+        document.getElementById("review_order_company_name").innerHTML = companyName;
+        document.getElementById("review_order_shares").innerHTML = shares;
+        document.getElementById("review_order_price").innerHTML = price;
+        document.getElementById("total").innerHTML = "Total: $" + total;
+    }    
+}
+
 
 function getSignUpInformation(){
     var firstName = document.getElementById("first_name").value;
@@ -32,33 +60,23 @@ function getSignUpInformation(){
     var xml = new XMLHttpRequest();
 
     var params = "?" + firstName + "?" + lastName + "?" + emailAddress + "?" + password;
-
+    // xml.open("GET", "Scripts/user_accounts.js" + params, true);
+    // xml.send();
     console.log("First Name: " + firstName);
     console.log("Last Name: " +lastName);
     console.log("Email Address: " + emailAddress);
     console.log("Password: " + password);
-    console.log("Total Assets: " + "10,000");
-    console.log("Buying Power: " + "10,000");
-    console.log("Liquid Assets: " + "0");
 
 
-
-
-
-
-
-
-
-
-
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-           // Action to be performed when the document is read;
-        }
-    xhttp.open("GET", "Scripts/user_accounts.js" + params, true);
-    xhttp.send(params);
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+       // Action to be performed when the document is read;
+    }
+xhttp.open("GET", "Scripts/user_accounts.js" + params, true);
+xhttp.send(params);
 }
+
+
 
 }
