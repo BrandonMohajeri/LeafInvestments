@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Top 250</title>
+
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+		<script src="jquery-1.6.1.js"></script>
+ 		<script src="my_jquery.js"></script>
+
+		<script src="movies.js"></script>
+		<script src="view_all_movies.js"></script>
+
+
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body>
+
+		<div id="top_box">
+			<div class ="top"> 
+				<span>Pick a random movie to watch from the top 250 movies!</span>
+				<a href='movie_roulette.html'class="myButton" onClick="findMovie()">Find Random Movie</a>
+				<a id="searchMovies"  onClick="findMovies()" class="myButton">Search All Movies</a>
+			</div>
+		</div>
+
+		<div id="main_page">
+		 <div id="result" class="result">
+				<div class = "movieImage"id="movieImage"></div>
+				<movieRating class = movieRating id="movieRating"></movieRating>
+
+				<movieTitle class = "movieTitle" id="movieTitle"></movieTitle>
+				<movieMPAARating class = "movieMPAARating" id = "movieMPAARating"></movieMPAARating>
+				<movieGenre class="movieGenre" id="movieGenre"></movieGenre>
+				<movieDirector class="movieDirector" id="movieDirector"></movieDirector>
+				<movieActors class="movieActors" id="movieActors"></movieActors>
+				<movieReleaseDate class="movieReleaseDate" id="movieReleaseDate"></movieReleaseDate>
+				<moviePlot class="moviePlot" id="moviePlot"></moviePlot>
+ 
+
+			</div>
+		</div>
+
+		
+
+	
+	</body>
+</html>
+
