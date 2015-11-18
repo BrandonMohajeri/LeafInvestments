@@ -9,6 +9,8 @@
 	<script src="Scripts/home_page.js"></script>
 
 
+
+
 	</head>
 
 	<body>
@@ -19,6 +21,8 @@
 			    <li class="tab active"><a href="#signup">Sign Up</a></li>
 			    <li class="tab"><a href="#login">Log In</a></li>
 		  	</ul>
+
+
 
 	  <div class="tab-content">
 	    <div id="signup">
@@ -56,7 +60,7 @@
 	          <input type="password" required autocomplete="off" id="password" />
 	        </div>
 
-	        <button type="submit" class="button button-block" onClick="getSignUpInformation()"/>Get Started</button>
+	        <submit action ='' method='POST' type="submit" class="button button-block" onClick="getElements()">Get Started</>
 
 	      </form>
 
@@ -71,19 +75,19 @@
 	          <label>
 	            Email Address<span class="req">*</span>
 	          </label>
-	          <input type="email" required autocomplete="off" />
+	          <input type="email" required autocomplete="off" id="userEmail" />
 	        </div>
 
 	        <div class="field-wrap">
 	          <label>
 	            Password<span class="req">*</span>
 	          </label>
-	          <input type="password" required autocomplete="off" />
+	          <input type="password" required autocomplete="off" id ="userPassword"/>
 	        </div>
 
 	        <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-	        <button class="button button-block" onclick="location.href='home_page.html'">Log In</button>
+	        <submit class="button button-block" onClick="userLogin()"onclick="location.href='home_page.html'">Log In</submit>
 
 	      </form>
 
@@ -98,6 +102,12 @@
 
 	</body>
 </html>
+
+
+
+<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+
+
 
 
 

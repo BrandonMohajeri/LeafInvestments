@@ -1,47 +1,66 @@
-
-
-getElements();
+//WHEN YOU ADD A NEW USER
 function getElements(){
-	// console.log(get['firstName']);
+// Create SocketIO instance, connect
 
+    var socket = io.connect('http://localhost:8080', {transports: ['websocket', 'polling', 'flashsocket']});
+
+    // socket.connect('http://localhost:8080');
+    var firstName = document.getElementById("first_name").value;
+    var lastName = document.getElementById("last_name").value;
+    var emailAddress = document.getElementById("email_address").value;
+    var password = document.getElementById("password").value;
+    var newUser = [firstName, lastName, emailAddress, password, 10000, 10000, 0];
+
+    // Add a connect listener
+    socket.on('connect',function() {
+      console.log('Client has connected to the server!')
+
+    });
+    // Add a connect listener
+    socket.on('message',function(data) {
+      console.log('Received a message from the server!',data);
+    });
+    // Add a disconnect listener
+    socket.on('disconnect',function() {
+      console.log('The client has disconnected!');
+    });
+
+
+    sendMessageToServer(newUser);
+
+    // Sends a message to the server via sockets
+    function sendMessageToServer(message) {
+      socket.send(message);
+    };
 }
 
+  function userLogin(){
+    var socket = io.connect('http://localhost:8080', {transports: ['websocket', 'polling', 'flashsocket']});
 
 
-var Db = require('mongodb').Db,
-    MongoClient = require('mongodb').MongoClient,
-    Server = require('mongodb').Server,
-    ReplSetServers = require('mongodb').ReplSetServers,
-    ObjectID = require('mongodb').ObjectID,
-    Binary = require('mongodb').Binary,
-    GridStore = require('mongodb').GridStore,
-    Grid = require('mongodb').Grid,
-    Code = require('mongodb').Code,
-    assert = require('assert');
+    var email = document.getElementById("userEmail").value;
+    var password = document.getElementById("userPassword").value;
 
-	var db = new Db('test', new Server('localhost', 27017));
-	db.open(function(err, db) {
-	  var collection = db.collection("users");
+    var credentials = [email, password];
 
+    sendMessageToServer(credentials);
 
-  // collection.insert(
-  // {
-  // 	firstName:"Brandon",
-  // 	lastName:"Mohajeri"
-  	// emailAddress:
-  	// password:
-  // })
+     // Add a connect listener
+    socket.on('connect',function() {
+      console.log('Client has connected to the server!')
 
+    });
+    // Add a connect listener
+    socket.on('message',function(data) {
+      console.log('Received a message from the server!',data);
+    });
+    // Add a disconnect listener
+    socket.on('disconnect',function() {
+      console.log('The client has disconnected!');
+    });
 
-  setTimeout(function() {
-
-      collection.find({}).toArray(function(err, item) {
-
-      console.log(item);
-
-      db.close();
-    })
-
-
-  }, 100);
-});
+     // Sends a message to the server via sockets
+    function sendMessageToServer(message) {
+      socket.send(message);
+    };
+  }
