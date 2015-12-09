@@ -3,67 +3,49 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="Scripts/user_accounts.js"></script>
 	<script src="Scripts/home_page.js"></script>
-
-
-
-
 	</head>
 
 	<body>
-
 		<div class="form">
-
 			<ul class="tab-group">
 			    <li class="tab active"><a href="#signup">Sign Up</a></li>
 			    <li class="tab"><a href="#login">Log In</a></li>
 		  	</ul>
-
-
-
-	  <div class="tab-content">
-	    <div id="signup">
-	      <h1>Sign Up Today</h1>
-
-	      <form action="/" method="post">
-
-	        <div class="top-row">
-	          <div class="field-wrap">
-	            <label >
-	              First Name<span class="req" ></span>
-	            </label>
-	            <input type="text" required autocomplete="off" id="first_name"/>
-	          </div>
-
-	          <div class="field-wrap">
-	            <label>
-	              Last Name<span class="req"></span>
-	            </label>
-	            <input type="text" required autocomplete="off" id="last_name"/>
-	          </div>
-	        </div>
-
-	        <div class="field-wrap">
-	          <label>
-	            Email Address<span class="req"></span>
-	          </label>
-	          <input type="email" required autocomplete="off" id="email_address"/>
-	        </div>
-
-	        <div class="field-wrap">
-	          <label>
-	            Set A Password<span class="req"></span>
-	          </label>
-	          <input type="password" required autocomplete="off" id="password" />
-	        </div>
-
-	        <submit action ='' method='POST' type="submit" class="button button-block" onClick="getElements()">Get Started</>
-
-	      </form>
-
+		  <div class="tab-content">
+		    <div id="signup">
+		      <h1>Sign Up Today</h1>
+		      <form action="/" method="post">
+		        <div class="top-row">
+		          <div class="field-wrap">
+		            <label >
+		              First Name<span class="req" ></span>
+		            </label>
+		            <input type="text" required autocomplete="off" id="first_name"/>
+		          </div>
+		          <div class="field-wrap">
+		            <label>
+		              Last Name<span class="req"></span>
+		            </label>
+		            <input type="text" required autocomplete="off" id="last_name"/>
+		          </div>
+		        </div>
+		        <div class="field-wrap">
+		          <label>
+		            Email Address<span class="req"></span>
+		          </label>
+		          <input type="email" required autocomplete="off" id="email_address"/>
+		        </div>
+		        <div class="field-wrap">
+		          <label>
+		            Set A Password<span class="req"></span>
+		          </label>
+		          <input type="password" required autocomplete="off" id="password" />
+		        </div>
+		        <submit action ='' method='POST' type="submit" class="button button-block" onClick="getElements()">Get Started</>
+		      </form>
 	    </div>
 
 	    <div id="login">

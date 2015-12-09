@@ -13,17 +13,13 @@ server.listen(port)
 // Create a Socket.IO instance, passing it our server
 var socket = io.listen(server);
 
+
 // Add a connect listener
 socket.on('connection', function(client){ 
     console.log('Connection to client established');
 
     // Success!  Now listen to messages to be received
     client.on('message',function(event){ 
-
-
-
-
-
 
     var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
@@ -36,41 +32,63 @@ socket.on('connection', function(client){
     Code = require('mongodb').Code,
     assert = require('assert');
 
-
 	var db = new Db('test', new Server('localhost', 27017));
 	db.open(function(err, db) {
 	var collection = db.collection("users");
 
 
 
-	//check login
+	// ******************************************************************************
+	// 									Confirm Login
+	// ******************************************************************************
     if(event.length == 2){
     	setTimeout(function() {
 
+		collection.find({emailAddress:event[0]}, {_id:0}).toArray(function(err, item) {
+					
 
+					item = JSON.stringify(item);
+					console.log(item);
 
+					var firstName = item.match('firstName":"(.*)","lastName');
+					var lastName = item.match('lastName":"(.*)","emailAddress');
+					var email = item.match('emailAddress":"(.*)","password');
+					var password = item.match('password":"(.*)","totalPrice');
+					var totalPrice = item.match('totalPrice":(.*),"buyingPower');
+					var buyingPower = item.match('buyingPower":(.*),"liquidMoney');
+					var liquidMoney = item.match('liquidMoney":(.*)}]');
 
+					var userLogin = {
+						firstName: firstName[1],
+						lastName: lastName[1],
+						email: email[1],
+						password: password[1],
+						totalPrice: totalPrice[1],
+						buyingPower: buyingPower[1],
+						liquidMoney: liquidMoney[1]
+					};
+					
+					  // Successful Login Attempt
+					  if(password[1] == event[1]){
+					  	socket.emit("message",userLogin);
+					  	console.log("*** SUCCESSFUL LOGIN ***");
+					  }
 
+					  // Failed Login Attempt
+					  else{
+					  	socket.emit("message","*** LOGIN FAILED ***");
+					  	console.log("*** LOGIN FAILED ***")
+					  }
 
-				      collection.find({emailAddress:event[0], password:event[1]}).toArray(function(err, item) {
-				   
-				      	for (var i in item) {
-				      		console.log(i);
-				      	}
-
-
-
-				   console.log(item);
-				      console.log("************");
 				      db.close();
-
-				    })
-
-
+		})
 	  }, 100);
     }
 
-    //add user
+
+    // ******************************************************************************
+	// 									Add New User
+	// ******************************************************************************
     else if(event.length == 7){
     		collection.insert(
 			  {
@@ -83,16 +101,14 @@ socket.on('connection', function(client){
 			  	liquidMoney: event[6]
 			  })
 
-
+					
+				  console.log("******* USER DATABASE *********");
 				  setTimeout(function() {
 
 				      collection.find({}).toArray(function(err, item) {
 				      console.log(item);
-
 				      db.close();
 				    })
-
-
 	  }, 100);
     }
 
@@ -100,18 +116,15 @@ socket.on('connection', function(client){
     	console.log("ERROR ERROR AWKWARD INPUT");
     }
 
-
-
-  
-});
-
-        console.log('Received message from client!',event);
     });
 
-    client.on('disconnect',function(){
-        clearInterval(interval);
-        console.log('Server has disconnected');
+    console.log('Received message from client!',event);
     });
+
+    // client.on('disconnect',function(){
+    //     clearInterval(interval);
+    //     console.log('Server has disconnected');
+    // });
 });
 
 console.log('Server running at http://127.0.0.1:' + port + '/');
