@@ -1,6 +1,8 @@
 # Leaf Investments
 
 The purpose of Leaf is give everyone the opportunity to learn to invest without any of the financial risks. 
+![alt tag](http://i65.tinypic.com/2ex5y0w.png)
+![alt tag](http://i68.tinypic.com/2l9gvwp.png)
 
 ## Installation
 
