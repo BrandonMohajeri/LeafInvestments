@@ -24,13 +24,12 @@ This app is centered around anyone interested in becoming involved in investing,
 4. Submit a pull request :D
 
 ### Credits
-
-Creator: Brandon Mohajeri
-Noted Contributors: Levi Johnston
+##Creator: Brandon Mohajeri
+##Noted Contributors: Levi Johnston
 
 
 ### License
-#The MIT License (MIT)
+##The MIT License (MIT)
 
 
 
