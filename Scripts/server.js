@@ -1,7 +1,5 @@
-
+// Funtion to scrape stock information
 function httpGetAsync() {
-
-
     var symbol = document.getElementById("symbol").value;
     var url = 'http://query.yahooapis.com/v1/public/yql';
     var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
@@ -30,6 +28,7 @@ function httpGetAsync() {
                     averageVolume=nFormatter(volume,1);
                 }
 
+            // Display stocks on HTML page
             $("#statistics").html(companyName);    
             $("#company_name").html(companyName);    
             $("#stock_price").html(openPrice);    
@@ -42,17 +41,6 @@ function httpGetAsync() {
             $("#market_capital").html(marketCapital);  
             $("#pe_ratio").html(peRatio);  
             $("#div_yield").html(divYield);  
-
-
-            // console.log("Company Name: " + companyName);
-            // console.log("Price: " + openPrice);
-            // console.log("Day's Low: " + dailyLow);
-            // console.log("Day's High: " + dailyHigh);
-            // console.log("Year's Low: " + yearLow);
-            // console.log("Year's High: " + yearHigh);
-            // console.log("Volume: " + volume);
-            // console.log("Average Volume: " + averageVolume);
-            // console.log("Market Capital: " + marketCapital);
 
         })
         .fail(function (jqxhr, textStatus, error) {
@@ -71,10 +59,12 @@ function nFormatter(num, digits) {
     { value: 1E6,  symbol: "M" },
     { value: 1E3,  symbol: "k" }
   ], i;
+
   for (i = 0; i < si.length; i++) {
     if (num >= si[i].value) {
       return (num / si[i].value).toFixed(digits).replace(/\.?0+$/, "") + si[i].symbol;
     }
   }
+  
   return num;
 }

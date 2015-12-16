@@ -1,17 +1,17 @@
-// Function which closes the purchase popup 
+// Function to close 'purchase' popup
 function exitPopup(){
 		var theDiv = document.getElementById('popup'); 
 		theDiv.style.display="none";
-         document.getElementById("symbol").value = null;
 }
 
+// Function to close 'review order' popup
 function exitReviewOrder(){
         var theDiv = document.getElementById('review_order'); 
         theDiv.style.display="none";
 }
 
 
-//Show purchase stock popup
+//Function to show 'purchase stock' popup
 function showHide(){
 	var buyingPower = document.getElementById("buying_power").innerHTML;
     var stockPrice = document.getElementById("stock_price").innerHTML;
@@ -19,8 +19,6 @@ function showHide(){
 	var theDiv = document.getElementById('popup'); 
     if(theDiv.style.display=="block"){
         theDiv.style.display="none";
-        document.getElementById("symbol").value = null;
-
     }
     else{
         theDiv.style.display="block";
@@ -29,6 +27,7 @@ function showHide(){
     }    
 }
 
+//Function to displsy the 'review order' popup
 function reviewOrder(){
 
     var companyName = document.getElementById("company_name").innerHTML;
@@ -50,24 +49,4 @@ function reviewOrder(){
     }    
 }
 
-
-function getSignUpInformation(){
-    // var firstName = document.getElementById("first_name").value;
-    // var lastName = document.getElementById("last_name").value;
-    // var emailAddress = document.getElementById("email_address").value;
-    // var password = document.getElementById("password").value;
-
-    // var xml = new XMLHttpRequest();
-
-    // var params = "?" + firstName + "?" + lastName + "?" + emailAddress + "?" + password;
-    // // xml.open("GET", "Scripts/user_accounts.js" + params, true);
-    // // xml.send();
-    // console.log("First Name: " + firstName);
-    // console.log("Last Name: " +lastName);
-    // console.log("Email Address: " + emailAddress);
-    // console.log("Password: " + password);
-
-
-
-
-}
+function getSignUpInformation(){Request();}

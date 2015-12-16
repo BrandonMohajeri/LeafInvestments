@@ -2,36 +2,31 @@
 
 The purpose of Leaf is give everyone the opportunity to learn to invest without any of the financial risks. 
 
-
 ## Installation
 
-###MongoDB
-#####Installation: 'brew install mongodb' 
-#####Open Server: Nagivate to the installed folder and run 'mongod'
-###NodeJS - Socket IO
-#####Installation: 'npm install socket.io'
-
+MongoDB
+NodeJS
 
 ## Usage
 
-This app is centered around anyone interested in becoming involved in investing, as an educational tool to gain an understanding and insight on the stock market in a fun and unique way.  After creating an account and joining the Leaf community, users will be given a Leaf account with money inside in which they are free to use to purchase real time market stocks. Users can purchase as many shares of whatever stock currently on yahoo finance as long as they have the buying power to support it. Users are also able to sell their shares of the stock at any time and cash out on their liquidated money. 
+This app is centered around kids as an educational tool to gain an understanding and insight on the stock market at an early age.  After creating an account and joining the Leaf community, users will be given a Leaf account with money inside in which they are free to use to purchase real time market stocks. Users can purchase as many shares of whatever stock currently on yahoo finance as long as they have the buying power to support it. Users are also able to sell their shares of the stock at any time and cash out on their liquidated money. 
 
 ## Contributing
-#### Fork It!
-1. Create your feature branch: `git checkout -b my-new-feature`
-2. Commit your changes: `git commit -am 'Add some feature'`
-3. Push to the branch: `git push origin my-new-feature`
-4. Submit a pull request :D
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
 ## Credits
-####Creator: Brandon Mohajeri
-####Noted Contributors: Levi Johnston
 
+Creator: Brandon Mohajeri
+		 Champan University 2016
 
 ## License
-####[The MIT License (MIT)](https://opensource.org/licenses/MIT)
+
+The MIT License (MIT)
 
 
-# Application Preview
-![alt tag](http://i65.tinypic.com/2ex5y0w.png)
-![alt tag](http://i68.tinypic.com/2l9gvwp.png)
+

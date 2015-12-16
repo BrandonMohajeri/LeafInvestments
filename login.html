@@ -1,11 +1,15 @@
+<!-- 
+Taken From: http://codepen.io/ehermanson/pen/KwKWEv
+ -->
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="Scripts/user_accounts.js"></script>
-	<script src="Scripts/home_page.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="Scripts/home_page.js"></script>
+		<script src="Scripts/user_accounts.js"></script>
+		<script src="Scripts/users.js"></script>
 	</head>
 
 	<body>
@@ -72,27 +76,15 @@
 	        <submit class="button button-block" onClick="userLogin()"onclick="location.href='home_page.html'">Log In</submit>
 
 	      </form>
-
 	    </div>
-
-
 	  </div>
-	  <!-- tab-content -->
-
 	</div>
-	<!-- /form -->
-
-	</body>
+    </body>
 </html>
 
 
 
 <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-
-
-
-
-
 <script>
 	$('.form').find('input, textarea').on('keyup blur focus', function(e) {
 
@@ -100,40 +92,25 @@
 	    label = $this.prev('label');
 
 	  if (e.type === 'keyup') {
-	    if ($this.val() === '') {
-	      label.removeClass('active highlight');
-	    } else {
-	      label.addClass('active highlight');
-	    }
-	  } else if (e.type === 'blur') {
-	    if ($this.val() === '') {
-	      label.removeClass('active highlight');
-	    } else {
-	      label.removeClass('highlight');
-	    }
-	  } else if (e.type === 'focus') {
-
-	    if ($this.val() === '') {
-	      label.removeClass('highlight');
-	    } else if ($this.val() !== '') {
-	      label.addClass('highlight');
-	    }
+	    if ($this.val() === '') {label.removeClass('active highlight');} 
+	    else {label.addClass('active highlight');}
+	  } 
+	  else if (e.type === 'blur') {
+	    if ($this.val() === '') {label.removeClass('active highlight');} 
+	    else {label.removeClass('highlight');}
+	  } 
+	  else if (e.type === 'focus') {
+	    if ($this.val() === '') {label.removeClass('highlight');} 
+	    else if ($this.val() !== '') {label.addClass('highlight');}
 	  }
-
 	});
 
 	$('.tab a').on('click', function(e) {
-
 	  e.preventDefault();
-
 	  $(this).parent().addClass('active');
 	  $(this).parent().siblings().removeClass('active');
-
 	  target = $(this).attr('href');
-
 	  $('.tab-content > div').not(target).hide();
-
 	  $(target).fadeIn(600);
-
 	});
 </script>

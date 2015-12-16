@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="css/home_page.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="Scripts/home_page.js"></script>
-	<script src="Scripts/server.js"></script>
-	<script src="Scripts/user_accounts.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/home_page.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+
+		<script src="Scripts/home_page.js"></script>
+		<script src="Scripts/server.js"></script>
+		<script src="Scripts/user_accounts.js"></script>
+		<script src="Scripts/users.js"></script>
 	</head>
-          
-
-
-                                                
+                                           
 	<body>
+		<!-- Popup to get purchase quantity from the user -->
+		<div id="userID"></div>
 		<div id="popup" class="popup" style="display:none">
 			<div class="popup_top_bar">
 				<div id="popup_exit" class="popup_exit" onclick="exitPopup()">X</div>
@@ -29,7 +31,7 @@
 		</div>
 
 
-
+		<!-- Popup for user to review their order before purchase -->
 		<div id="review_order" class="review_order" style="display:none">
 			<div class="popup_top_bar">
 				<div id="popup_exit" class="popup_exit" onclick="exitReviewOrder()">X</div>
@@ -37,85 +39,52 @@
 			<div class="review_order_title">Review Order</div>
 			<div class="review_order_company_name" id="review_order_company_name">Company Name</div>
 			<div class="purchase_summary"></p>
-				Number of Shares: <span id="review_order_shares" class="review_order_shares">22</span>
+				Number of Shares: <span id="review_order_shares" class="review_order_shares"></span>
 				&nbsp&nbsp&nbsp&nbsp&nbspPrice / Share: <span id="review_order_price" class="review_order_price">price</span>
 				</p>Remaining Purchasing Power: <span id="remaining_purchasing_power" class="remaining_purchasing_power">$00,000.00
 			</div>
 			<div class="total_container">
 					<total id="total"></total>
 			</div>
-			<div class="confirm_order_button">Confrim Order</div>
+			<div class="confirm_order_button" onclick="purchaseStock();loadPortfolio()">Confirm Order</div>
 		</div>
 
-
-
-
-
+		<!-- Top bar displaying users financial account summary -->
 		<div class="top">
 			<span>Leaf Investments</span>
 		</div>
-
 		<div class="summary_wrapper">
 			<div class="money_wrapper">
 				<div class="total_funds" id="total_price">$00,000.00</div>
 				<div id="buying_power" class="buying_power">Buying Power: $0,000.00</div>
-				<div class="buying_power">Liquid Money: $00,000.00</div>
+				<div id="liquid_money" class="buying_power">Liquid Money: $00,000.00</div>
 			</div>
 		</div>
 
+		<!-- Portfolio Display -->
 		<div class="main_container">
 			<div class="left_page">
-				<div class="portfolio_wrapper">
-					<div class="portfolio_header">Portfolio</div>
+				<div id ="portfolio" class="portfolio_wrapper">
+					<div  class="portfolio_header">Portfolio</div>
 						<div class="portfolio_element">
 							<div class="portfolio_symbol">SYMB</div>
 							<div class="portfolio_cost">00.00</div>
 							<div class="portfolio_differential">0.00</div>
 						</div>
-						<div class="portfolio_element">
-							<div class="portfolio_symbol">SYMB</div>
-							<div class="portfolio_cost">00.00</div>
-							<div class="portfolio_differential">0.00</div>
-						</div>
-						<div class="portfolio_element">
-							<div class="portfolio_symbol">SYMB</div>
-							<div class="portfolio_cost">00.00</div>
-							<div class="portfolio_differential">0.00</div>
-						</div>
-						<div class="portfolio_element">
-							<div class="portfolio_symbol">SYMB</div>
-							<div class="portfolio_cost">00.00</div>
-							<div class="portfolio_differential">0.00</div>
-						</div>
-						<div class="portfolio_element">
-							<div class="portfolio_symbol">SYMB</div>
-							<div class="portfolio_cost">00.00</div>
-							<div class="portfolio_differential">0.00</div>
-						</div>
-						<div class="portfolio_element">
-							<div class="portfolio_symbol">SYMB</div>
-							<div class="portfolio_cost">00.00</div>
-							<div class="portfolio_differential">0.00</div>
-						</div>
-						<div class="portfolio_element">
-							<div class="portfolio_symbol">SYMB</div>
-							<div class="portfolio_cost">00.00</div>
-							<div class="portfolio_differential">0.00</div>
-						</div>
-						
 				</div>
 			</div>
 
+			<!-- Portfolio Display -->
 			<div class="right_page">
 				<div class="search_wrapper">
 					<form action="#">
 					<label for="name"></label> 
 					<input name ="symbol" id="symbol" type="text" placeholder="SYMB"/>
-					<div class="btn" onclick="httpGetAsync()" >Search</div>
+					<div class="btn" onclick="httpGetAsync();loadPortfolio()" >Search</div>
 					</form>
 				</div>
 
-				<!-- Illustrates Stock Statistics After Search -->
+				<!-- Illustrates stock statistics after search and ability to purchase -->
 				<div class="stat_box">
 					<header id="company_name">Statistics</header>
 					<div class="stat_box_left">
@@ -133,21 +102,26 @@
 						<div class="stat_box_right_content">DIV/Yield<span id="div_yield">00/00</span></div>
 					</div>
 				</div>
-
 				<div class="company_summary_wrapper">
 					<div class="company_summary_title">Company Summary : </div>
 					<div class="company_summary" id="company_summary">
 						Cras id metus non purus pretium egestas vitae sed est. Aliquam a gravida felis, non pulvinar dui. In fringilla turpis nec purus aliquet, id ornare orci bibendum. Mauris blandit, turpis in pretium varius, libero sapien luctus metus, et ultricies lorem lorem et tortor. Vivamus feugiat euismod congue. Duis lacinia sed sapien et suscipit. Morbi congue fringilla tortor. Donec faucibus convallis ligula. Mauris ut nisl dui.
 					</div>
 				</div>	
-
 				<div id ="buy_button" class="buy_button" onclick="showHide()">Buy Shares</div>	
-
 			</div>
 		</div>
 	</body>
 </html>
 
-
-
-
+<!-- Function to store and send data between pages -->
+<script>
+$(document).ready(function(){
+    //This sessionStorage.getItem(); is also a predefined function in javascript
+    //will retrieve session and get the value;
+    var a = sessionStorage.getItem("sent");
+    var email = sessionStorage.getItem("email");
+    test(JSON.stringify(a, null, 4));
+    loadPortfolio(JSON.stringify(a, null, 4));
+});
+</script>
